@@ -1,0 +1,17 @@
+Collaborators: Lesly Alcantara & Mya Turner
+BU ID Used for Problem4: U68488295
+
+main.cpp output:
+Longest Word Length: 124
+Valid Passwords: 18250736
+Number of valid dictionary words: 51
+
+Explanation:
+a) For each word in Big Data, compare the length of each word until you have checked all the words and find the greatest length.
+
+b) For each each word in Big Data, check if it is between 8 and 20 character, has at least one uppercase and one lowercase increase the
+number of words that could count as a password by one.  Uses three boolean flags to check if all three conditions are met.
+
+c)We used a Trie data structure to keep track of every dictionary word. We then traversed through our BigData text file,
+iterating through each word and searching for the word in the trie, using the search function.
+If found, we then checked if it contained an r, t, and l, if it didn’t, our WordCount was increased by 1. In the end we returned the WordCount.
