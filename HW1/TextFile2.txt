@@ -1,0 +1,13 @@
+Implement the following C++ function: 
+ 	int StringSearch (string filename, string pattern) 
+
+The function receives as input a file name for a text file containing English text, and a string of text. It returns the number of occurrences of the specified string in the file. 
+
+Your main function should receive a file name and a string from the command line, call the StringSearch function with the provided file name and string, and print out the output returned by the function. 
+
+For example, suppose that you compile your program to the executable Problem4, for the provided TextFile.txt file, and string "file " (note that the last character is space), your program should be run as follows:
+	> Problem4 TextFile.txt "file "
+
+and should only print the output of the function, 6 in this case.
+
+Submit your solution in a single file, Problem4.cpp.
