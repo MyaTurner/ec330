@@ -207,8 +207,6 @@ vector<vector<string>> getEdges(string filename, vector<vector<string>> adjList,
 
 /*distThreeNeighbors prints out takes in a vertex and prints our its 3 distance neighbors in alphabetical order,
 // one per line */
-
-//NOTE GIVES DUPLICATES IN FINAL VECTOR, MITIGATE THIS PROBELM BY REMOVING DUPLICATES IN PRINT FUNCTION.  GONNA TRY TO FIGURE OUT WHY
 vector<string> distThreeNeighbors(vector<vector<string>> adjList, string src_vertex)
 {
     vector<string> neighbors, visited, neighborsFinal;
@@ -263,8 +261,10 @@ vector<string> distThreeNeighbors(vector<vector<string>> adjList, string src_ver
 
                 for(int j = 1; j < currentAdjList.size(); j++) {
 
-                    //If the nextNeighbor in the adjacency list is not in visited
-                    if ( !(find(visited.begin(), visited.end(), currentAdjList[j]) != visited.end()) ) {
+                    //If the nextNeighbor in the adjacency list is not in visited or neighborsFinal, add to both of these!
+                    if ( !(find(visited.begin(), visited.end(), currentAdjList[j]) != visited.end()) &&
+                            !(find(neighborsFinal.begin(), neighborsFinal.end(), currentAdjList[j]) != neighborsFinal.end())) {
+
                         neighborsFinal.push_back(currentAdjList[j]);
                         nextNeighbor.push_back(currentAdjList[j]);
                     }
@@ -288,9 +288,6 @@ void printdistanceThreeNeighbors(vector<string> neighbors)
 {
     //Sort array neighbor vector alphabetically
     neighbors = alphabaticallySort(neighbors);
-
-    //Erasing duplicates
-    neighbors.erase( unique( neighbors.begin(), neighbors.end() ), neighbors.end() );
 
     //Print out neighbors vector
     for(int i = 0; i < neighbors.size(); i++)
